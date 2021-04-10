@@ -16,13 +16,13 @@ const fetchJobs = async () => {
 }
 
 const createJobCard = (job) => {
-  console.log(job)
   let jobHtml = `
-    <div class"job-card">
+    <div class="job-card">
       <div class="job-head">
         <h2>
           <a href="${job.company_url}">${job.company}</a>
         </h2>
+        <img src="${job.company_logo}" alt="">
         <h3>${job.title}</h3>
         <h3>${job.type}</h3>
         <h3<${job.locations}</h3>
@@ -31,9 +31,9 @@ const createJobCard = (job) => {
         ${job.description}
       </div>
       <div class="job-footer">
-        <h4>
-          ${job.how_to_apply}
-        </h4>
+        <h3>
+        ${job.how_to_apply}
+        </h3>
       </div>
     </div>
   `
@@ -52,7 +52,6 @@ const renderJobs = async () => {
 $('#job-search').on('submit', function(event) {
   event.preventDefault()
   renderJobs()
-  console.log("something")
 })
 
 
@@ -90,5 +89,20 @@ async function fetchWeather() {
     }
   });
 }
+
+async function fetchQuote() {
+  const response = await fetch('/cowspiration');
+  const { cow } = await response.json();
+
+  $('#results').empty().append($(`<pre>${ cow }</pre>`))
+}
+
+$('#job-search').on('submit', function(event) {
+  event.preventDefault()
+  $('#results').empty()
+  renderJobs()
+})
+
+fetchQuote();
 
 fetchWeather();

@@ -14,13 +14,13 @@ html {
   flex-direction: column;
   height: 100%;
   min-height: 0;
+  width: 100vw;
 }
 
 #app > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   font-size: 1.2em;
 
   padding: .5em;
@@ -126,4 +126,27 @@ html {
   display: grid;
   grid-template-columns: repeat(2 , minmax(0, 1fr));
 }
-
+.job-card{
+  color: #0b0c10;
+  background-color: #c5c6c7;
+  margin: 10px;
+  height: auto;
+  border: #0b0c10 solid 1px;
+  box-shadow: 0px 15px 20px -9px #0b0c10; 
+  padding: 10px;
+  padding-left: 25;
+}
+.job-head{
+  height: 150px;
+}
+.job-body{
+  margin-top: 15px;
+}
+img {
+  display: flex;
+  max-height: 145px;
+  max-width: 145px;
+  position: relative;
+  top: 0px;
+  float: right;
+}
