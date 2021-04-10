@@ -121,3 +121,9 @@ html {
 #weather img:first-of-type {
   border: 1px solid green;
 }
+
+#results{
+  display: grid;
+  grid-template-columns: repeat(2 , minmax(0, 1fr));
+}
+
